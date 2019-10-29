@@ -2,11 +2,10 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>JS Drum Kit</title>
+  <title>JS Andre Drum Kit🥁</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
 
   <div class="keys">
     <div data-key="65" class="key">
@@ -58,9 +57,19 @@
   <audio data-key="76" src="sounds/tink.wav"></audio>
 
 <script>
+  
+  function handleKeyPressed(event) {
+    console.log(event.keyCode);
+    const drumAudio = document.querySelector(`audio[data-key="${event.keyCode}"]`);
+    const keyPressed = document.querySelector(`.key[data-key="${event.keyCode}"]`);
+    console.log('soy el key', keyPressed);
+    console.log(drumAudio);
+    keyPressed.classList.add('playing');
+    drumAudio.currentTime = 0;
+    drumAudio.play();
+  };
 
+  window.addEventListener('keydown', handleKeyPressed);
 </script>
-
-
 </body>
 </html>
