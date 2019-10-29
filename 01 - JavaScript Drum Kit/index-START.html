@@ -56,36 +56,6 @@
   <audio data-key="75" src="sounds/tom.wav"></audio>
   <audio data-key="76" src="sounds/tink.wav"></audio>
 
-<script>
-  
-  function handleKeyPressed(event) {
-    console.log(event.keyCode);
-    const drumAudio = document.querySelector(`audio[data-key="${event.keyCode}"]`);
-    const keyPressed = document.querySelector(`.key[data-key="${event.keyCode}"]`);
-    if(!drumAudio) {
-      return
-    }
-    console.log('soy el key', keyPressed);
-
-    console.log(drumAudio);
-    keyPressed.classList.add('playing');
-    drumAudio.currentTime = 0;
-    drumAudio.play();
-  };
-
-function removeTransition(event) {
-  console.log(event);
-  if(event.propertyName !== 'transform') {
-    return
-  }
-  console.log('soy el this', this);
-  console.log('soy eventcurrentTarget', event.currentTarget);
-  event.currentTarget.classList.remove('playing');
-}
-  const keys = document.querySelectorAll('.key');
-  keys.forEach(key => key.addEventListener('transitionend', removeTransition));
-
-  window.addEventListener('keydown', handleKeyPressed);
-</script>
+<script src="index.js" type="text/javascript"/>
 </body>
 </html>
